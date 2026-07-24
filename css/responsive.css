@@ -1,0 +1,334 @@
+/* ==================================================================
+   TASMIMI DZ — RESPONSIVE STYLESHEET
+   Mobile-first breakpoints. Base (mobile) styles live in style.css.
+   This file only contains media queries and responsive adjustments.
+
+   Breakpoint scale:
+     480px   — Small tablets / large phones
+     768px   — Tablets
+     1024px  — Small laptops / desktop
+     1280px  — Large desktops
+   ================================================================== */
+
+
+/* ==================================================================
+   1. SMALL TABLETS — min-width: 480px
+   ================================================================== */
+@media (min-width: 480px) {
+
+    :root {
+        --container-padding: 28px;
+    }
+
+    /* Trust strip: move from 2x2 to a single confident row */
+    .trust-strip__inner {
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-md);
+    }
+
+    /* Hero actions can sit side by side once there's room */
+    .hero__actions {
+        flex-direction: row;
+    }
+
+    .hero__actions .btn {
+        width: auto;
+    }
+
+    /* Final CTA buttons side by side */
+    .final-cta__actions {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .final-cta__actions .btn {
+        width: auto;
+    }
+
+    /* Reviews: show a peek of the next card */
+    .review-card {
+        flex: 0 0 70%;
+    }
+}
+
+
+/* ==================================================================
+   2. TABLETS — min-width: 768px
+   ================================================================== */
+@media (min-width: 768px) {
+
+    :root {
+        --container-padding: 40px;
+        --fs-2xl: 2.75rem;   /* 44px */
+        --fs-3xl: 3.25rem;   /* 52px */
+        --fs-xl: 2rem;       /* 32px */
+    }
+
+    /* ---- Header / Nav ---- */
+    .logo-wordmark {
+        display: inline-block;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+        padding-inline: var(--container-padding);
+        text-align: left;
+    }
+
+    .hero__image {
+        max-width: 560px;
+    }
+
+    .hero__headline {
+        font-size: var(--fs-3xl);
+    }
+
+    /* ---- Section headings get more room to breathe ---- */
+    .section-heading {
+        max-width: 26ch;
+    }
+
+    /* ---- Featured Mockups: 2-column gallery ---- */
+    .mockup-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+    }
+
+    /* ---- Category strip: centered, no need to scroll ---- */
+    .category-strip__list {
+        justify-content: center;
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+
+    /* ---- Why Choose Us: 2-column grid ---- */
+    .reasons-grid {
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: var(--space-xl);
+        row-gap: var(--space-xl);
+    }
+
+    /* ---- How It Works: CTA no longer needs full width ---- */
+    .how-it-works__cta .btn {
+        width: auto;
+    }
+
+    /* ---- Reviews: two cards visible, snap disabled for a calmer feel ---- */
+    .reviews-carousel {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        overflow-x: visible;
+    }
+
+    .review-card {
+        flex: initial;
+    }
+
+    /* ---- Pricing teaser list reads better inline ---- */
+    .pricing-teaser__list {
+        flex-direction: row;
+        justify-content: center;
+        gap: var(--space-lg);
+    }
+
+    /* ---- Footer: single row ---- */
+    .site-footer__inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+
+/* ==================================================================
+   3. SMALL LAPTOPS / DESKTOP — min-width: 1024px
+   ================================================================== */
+@media (min-width: 1024px) {
+
+    :root {
+        --container-padding: 48px;
+        --fs-3xl: 3.75rem;   /* 60px */
+        --fs-2xl: 3rem;      /* 48px */
+        --fs-xl: 2.25rem;    /* 36px */
+    }
+
+    /* ---- Header / Nav: full desktop nav replaces hamburger ---- */
+    .navbar__links {
+        display: flex;
+    }
+
+    .navbar__cta {
+        display: block;
+    }
+
+    .btn--nav {
+        display: inline-flex;
+    }
+
+    .navbar__toggle,
+    .navbar-drawer {
+        display: none;
+    }
+
+    /* ---- Hero: side-by-side layout, ~85vh so the trust strip peeks in ---- */
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 85vh;
+        padding: calc(var(--space-4xl) + 64px) var(--container-padding) var(--space-3xl);
+        gap: var(--space-2xl);
+    }
+
+    .hero__content {
+        order: 0;
+        flex: 1 1 50%;
+        max-width: 560px;
+    }
+
+    .hero__visual {
+        order: 0;
+        flex: 1 1 45%;
+        margin: 0;
+        justify-content: flex-end;
+    }
+
+    .hero__image {
+        max-width: 100%;
+    }
+
+    .hero__actions .btn {
+        width: auto;
+    }
+
+    /* ---- Trust strip: quieter, more generous spacing ---- */
+    .trust-strip__inner {
+        gap: var(--space-2xl);
+    }
+
+    .trust-stat__number {
+        font-size: var(--fs-xl);
+    }
+
+    /* ---- Featured Mockups: the signature 3-column gallery ---- */
+    .mockup-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-xl);
+    }
+
+    .mockup-card__image-wrap:hover {
+        transform: scale(1.03);
+        box-shadow: var(--shadow-lg);
+    }
+
+    /* ---- Why Choose Us: 4-column, floating on the black background ---- */
+    .reasons-grid {
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: var(--space-lg);
+    }
+
+    /* ---- How It Works: horizontal 3-step process ---- */
+    .steps-list {
+        flex-direction: row;
+        gap: var(--space-xl);
+    }
+
+    .step-item {
+        flex: 1;
+        padding-left: 0;
+        padding-top: var(--space-lg);
+        border-left: none;
+        border-top: 2px solid var(--color-accent-soft);
+    }
+
+    .how-it-works__cta {
+        display: flex;
+        justify-content: center;
+    }
+
+    .how-it-works__cta .btn {
+        width: auto;
+    }
+
+    /* ---- Pricing teaser: keep it centered but roomier ---- */
+    .pricing-teaser__headline {
+        font-size: var(--fs-xl);
+    }
+
+    /* ---- Reviews: full 3-column grid, real testimonial wall ---- */
+    .reviews-carousel {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+    }
+
+    /* ---- FAQ: slightly wider reading column already handled by
+             .section-container--narrow; just add breathing room ---- */
+    .faq-item__question {
+        font-size: var(--fs-base);
+    }
+
+    /* ---- Final CTA ---- */
+    .final-cta__headline {
+        font-size: var(--fs-xl);
+    }
+
+    /* ---- Floating WhatsApp: nudge in from the edge on wide viewports ---- */
+    .floating-whatsapp {
+        bottom: var(--space-lg);
+        right: var(--space-lg);
+    }
+}
+
+
+/* ==================================================================
+   4. LARGE DESKTOPS — min-width: 1280px
+   ================================================================== */
+@media (min-width: 1280px) {
+
+    /* .section-container is already max-width: 1200px + margin-inline:
+       auto, so it self-centers with generous, automatic side margins
+       on large screens. We only widen the hero's own box to match,
+       since .hero uses --container-padding directly rather than
+       .section-container. */
+    .hero {
+        max-width: var(--container-max);
+        margin-inline: auto;
+        padding-inline: 0;
+    }
+
+    .hero__content {
+        max-width: 600px;
+    }
+
+    .hero__visual {
+        flex: 1 1 50%;
+    }
+
+    /* ---- Section headings: let the big confident type do its job ---- */
+    .section-heading {
+        font-size: var(--fs-2xl);
+        max-width: 28ch;
+    }
+
+    /* ---- Featured Mockups: extra breathing room, still capped at 3 col ---- */
+    .mockup-grid {
+        gap: 40px;
+    }
+
+    /* ---- Why Choose Us: wider gutters for a light, uncluttered grid ---- */
+    .reasons-grid {
+        column-gap: var(--space-2xl);
+    }
+
+    /* ---- Vertical rhythm: bump section spacing up toward the
+             80–120px range recommended for desktop ---- */
+    .featured-mockups,
+    .why-choose-us,
+    .how-it-works,
+    .pricing-teaser,
+    .reviews,
+    .faq,
+    .final-cta {
+        padding-block: var(--space-4xl);
+    }
+}

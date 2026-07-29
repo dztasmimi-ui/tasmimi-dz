@@ -1084,6 +1084,14 @@ p {
     100% { box-shadow: 0 0 0 0 rgba(47, 107, 255, 0), var(--shadow-accent); }
 }
 
+/* WhatsApp icon exception: keep the original green SVG colors.
+   Add this class alongside .btn-icon / .floating-whatsapp__icon on the
+   WhatsApp <img> element(s) only — it does not affect any other icon. */
+.btn-icon.whatsapp-icon,
+.floating-whatsapp__icon.whatsapp-icon {
+    filter: none;
+}
+
 
 /* ==================================================================
    19. SCROLL-REVEAL ANIMATION HOOKS
